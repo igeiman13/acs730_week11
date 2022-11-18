@@ -2,22 +2,14 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.26.0"
+      version = "4.40.0"
     }
     random = {
       source  = "hashicorp/random"
-      version = "3.0.1"
+      version = "3.4.3"
     }
   }
-  required_version = ">= 1.1.0"
-
-  cloud {
-    organization = "REPLACE_ME"
-
-    workspaces {
-      name = "gh-actions-demo"
-    }
-  }
+  required_version = ">= 1.0.0"
 }
 
 provider "aws" {
