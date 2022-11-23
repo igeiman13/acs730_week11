@@ -10,11 +10,12 @@ on:
     branches: [ "dev", "staging"]
   pull_request:
     branches: [ "prod" ]
-  schedule:
-    - cron: '43 0 * * 6'
+  paths: 
+    - staging/**
+    - prod/**
 
 jobs:
-  tfsec_tflint:
+  tfsec_tflint_staging:
     name: Run tfsec sarif report
     runs-on: ubuntu-latest
     permissions:
@@ -36,12 +37,15 @@ jobs:
 
       - name: Init TFLint
         run: tflint --init
+        working-directory: ./staging
 
       - name: Run TFLint
         run: tflint -f compact
+        working-directory: ./staging
 
       - name: Run tfsec
         uses: aquasecurity/tfsec-sarif-action@9a83b5c3524f825c020e356335855741fd02745f
+        working-directory: ./staging
         with:
           sarif_file: tfsec.sarif
 
