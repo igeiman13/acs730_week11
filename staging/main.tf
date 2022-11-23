@@ -37,7 +37,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_security_group" "web-sg" {
   name = "${random_pet.sg.id}-sg"
-  description = "Ingress on port 8080"
+  description = "Ingress on port 808000000"
   ingress {
     from_port   = 8080
     to_port     = 8080

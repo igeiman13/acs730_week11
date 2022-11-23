@@ -36,7 +36,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.1.9
-          terraform_wrapper: false
+          terraform_wrapper: true
 
       - name: Terraform fmt
         id: fmt
@@ -64,7 +64,7 @@ jobs:
         continue-on-error: true
 
       - name: Get result
-        run: echo "${{ steps.plan.outputs.stdout }}"
+        run: echo "${{ steps.validate.outputs.stdout }}"
           
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
