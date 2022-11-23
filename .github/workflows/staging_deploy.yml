@@ -43,19 +43,19 @@ jobs:
         run: terraform fmt 
         continue-on-error: true
         working-directory: ./staging
-        shell: bash
+
 
       - name: Terraform Init
         id: init
         run: terraform init
         working-directory: ./staging
-        shell: bash
+
            
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
         working-directory: ./staging
-        shell: bash
+
     
       - name: Terraform Plan
         id: plan
@@ -63,6 +63,8 @@ jobs:
         working-directory: ./staging # Use your environment folder
         continue-on-error: true
 
+      - name: Get result
+        run: echo "${{ steps.plan.outputs.stdout }}"
           
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
