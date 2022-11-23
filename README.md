@@ -1,3 +1,3 @@
 # acs730_week11
 
-[![tfsec](https://github.com/igeiman13/week11_test/actions/workflows/tfsec.yml/badge.svg)](https://github.com/igeiman13/week11_test/actions/workflows/tfsec.yml)
+[![tfsec](https://github.com/igeiman13/acs730_week11/actions/workflows/staging_tfsec.yml/badge.svg)](https://github.com/igeiman13/acs730_week11/actions/workflows/staging_tfsec.yml)
